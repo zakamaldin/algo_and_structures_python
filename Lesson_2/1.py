@@ -9,3 +9,31 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+
+def count():
+    a = int(input('Введите первый операнд:'))
+    b = int(input('Введите второй операнд:'))
+    print('Выберете оду из операций: + - * / ^')
+    operator = input('Введите оператор (0 - для выхода):')
+    if operator == '+':
+        print('Ответ:', a + b)
+    elif operator == '-':
+        print('Ответ:', a - b)
+    elif operator == '*':
+        print('Ответ:', a * b)
+    elif operator == '^':
+        print('Ответ:', a ** b)
+    elif operator == '/':
+        if b == '0':
+            print('Ответ:', a / b)
+        print('Ошибка деления на 0!!!')
+    elif operator == '0':
+        exit('До свидания!')
+    else:
+        print('Неизвестный оператор!!!')
+
+
+count()
+while True:
+    count()
