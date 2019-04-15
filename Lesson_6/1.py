@@ -7,3 +7,52 @@
 комментариев к коду. Также укажите в комментариях версию Python
 и разрядность вашей ОС.
 """
+from memory_profiler import profile
+
+# python 3.7 wi10x64
+
+# пример из 2.4, но так как функция реккурсивная, при каждой итерации мы заново профилируем ее, как быть?
+
+
+@profile
+def count(base, num):
+    if num == 0:
+        return base
+    else:
+        return base + count(base / (-2), num - 1)
+
+
+num = int(input('Введите натуральное число:'))
+print(count(1, num))
+
+# пример из 3.1
+
+@profile
+def divs():
+    for i in range(2, 10):
+        for j in range(2,100):
+            if j % i == 0:
+                print(f'{j} кратно {i}')
+
+
+divs()
+
+# пример из 4.2
+
+
+@profile
+def with_er(n):
+    a = list(range(n + 1))
+    a[1] = 0
+    lst = []
+
+    i = 2
+    while i <= n:
+        if a[i] != 0:
+            lst.append(a[i])
+            for j in range(i, n + 1, i):
+                a[j] = 0
+        i += 1
+
+
+with_er(100)
