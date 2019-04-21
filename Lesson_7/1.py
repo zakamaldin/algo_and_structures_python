@@ -4,3 +4,16 @@
 исходный и отсортированный массивы. Сортировка должна быть реализована в
 виде функции. По возможности доработайте алгоритм (сделайте его умнее).
 """
+
+# Понял, что умнее - значит сделать проверку первоначаального массива, может быть он отсортирован
+# также можно сделать шейкерную сортировку, чтобы сократить время
+import random
+numbers = [random.randint(-100, 100) for i in range(100)]
+print(numbers)
+n = 1
+while n < len(numbers):
+     for i in range(len(numbers)-n):
+          if numbers[i] < numbers[i+1]:
+              numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
+     n += 1
+print(numbers)
